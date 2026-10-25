@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Da Mộc — Xưởng đồ da thủ công</title>
+<meta name="description" content="Da Mộc — xưởng đồ da thủ công: ví, túi, thắt lưng, dây đồng hồ và đồ da đặt riêng, khâu tay từng mũi chỉ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1F1A15; --bg-alt:#2A231C; --ink:#F1E7D3; --muted:#B8A88F;
+    --accent:#C68B4A; --accent-deep:#8A5A2B; --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;font-size:17px;line-height:1.6}
+  img{display:block;width:100%;object-fit:cover;background:var(--bg-alt)}
+  a{color:var(--accent)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  section.alt{background:var(--bg-alt)}
+  /* Đường chỉ khâu yên ngựa: nét 8px, khoảng trống 4px, dày 2px */
+  .stitch{height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 12px)}
+  .stitch-short{width:48px;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 12px);margin-bottom:16px}
+  h1,h2,h3{font-family:"Playfair Display",serif;font-weight:700;margin:0 0 16px;line-height:1.25}
+  h2{font-size:40px}
+  h3{font-size:24px}
+  p{margin:0 0 16px;color:var(--ink)}
+  .muted{color:var(--muted)}
+  .caption{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  /* Hero toàn màn hình */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0}
+  .hero img{position:absolute;inset:0;height:100%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,26,21,.15) 40%,rgba(31,26,21,.88) 100%)}
+  .hero-inner{position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;padding:48px 24px 64px}
+  .hero h1{font-size:64px;margin-bottom:12px}
+  .hero p{font-size:19px;max-width:640px}
+  .btn{display:inline-block;background:var(--accent);color:#1F1A15;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:6px;margin-top:8px}
+  .btn:hover{background:#d69f5c}
+  /* Câu chuyện: chữ tối đa 60% chiều rộng khối */
+  .story-text{max-width:60%}
+  .frame{border:1px solid var(--accent-deep);padding:10px;background:var(--bg)}
+  .frame img{aspect-ratio:3/2}
+  /* Bộ sưu tập editorial dọc */
+  .product{margin-bottom:96px}
+  .product:last-child{margin-bottom:0}
+  .product .frame{position:relative}
+  .product .frame img{aspect-ratio:16/9}
+  .tag{position:absolute;top:20px;left:20px;background:var(--accent-deep);border:1px dashed var(--accent);border-radius:4px;color:var(--ink);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;z-index:1}
+  .product h3{margin-top:20px}
+  .price{color:var(--accent);font-weight:700;font-size:19px}
+  .price small{color:var(--muted);font-weight:400;font-size:14px}
+  /* Quy trình dọc */
+  .step{margin-bottom:64px}
+  .step:last-child{margin-bottom:0}
+  .step .frame img{aspect-ratio:3/2}
+  .step-num{font-family:"Playfair Display",serif;color:var(--accent);font-size:40px;line-height:1;margin:20px 0 8px}
+  /* Cảm nhận */
+  .quote{padding:32px 0}
+  .quote + .quote{border-top:0}
+  .quote p{font-family:"Playfair Display",serif;font-size:21px;font-style:italic}
+  /* Form chỉ giao diện */
+  form{max-width:640px}
+  label{display:block;margin:20px 0 6px;font-weight:500}
+  input,select,textarea{width:100%;background:#1F1A15;border:1px solid var(--accent-deep);border-radius:6px;color:var(--ink);font:inherit;padding:12px 14px}
+  textarea{min-height:120px;resize:vertical}
+  button.btn{border:0;cursor:pointer;font:inherit;font-weight:700}
+  #form-note{display:none;margin-top:20px;border:1px dashed var(--accent);padding:14px 18px;border-radius:6px;color:var(--ink)}
+  footer{padding:64px 0;border-top:1px solid var(--accent-deep)}
+  footer p{color:var(--muted)}
+  @media (max-width:767px){
+    section{padding:64px 0}
+    h2{font-size:28px}
+    .hero{min-height:100svh}
+    .hero img{aspect-ratio:auto}
+    .hero h1{font-size:40px}
+    .story-text{max-width:100%}
+    .product{margin-bottom:64px}
+    .step{margin-bottom:48px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <img src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?auto=format&fit=crop&w=1800&q=80" alt="Thợ đang khâu tay một chiếc ví da" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1800&q=80';">
+  <div class="hero-inner">
+    <h1>Da Mộc</h1>
+    <p>Đồ da khâu tay — càng dùng càng đẹp, càng cũ càng có hồn.</p>
+    <a class="btn" href="#bo-suu-tap">Xem bộ sưu tập</a>
+  </div>
+</header>
+
+<!-- 2. CÂU CHUYỆN XƯỞNG -->
+<section>
+  <div class="wrap">
+    <div class="stitch-short"></div>
+    <h2>Câu chuyện xưởng</h2>
+    <div class="story-text">
+      <p>Da Mộc là một xưởng nhỏ, nơi mỗi món đồ da đều đi qua bàn tay người thợ: chọn tấm da, cắt, đục lỗ rồi khâu từng mũi chỉ yên ngựa. Không dây chuyền, không vội vàng — chỉ có thời gian và sự tỉ mỉ.</p>
+      <p>Chúng tôi tin rằng một chiếc ví hay chiếc túi tốt không nằm ở logo, mà ở đường chỉ thẳng, mép da mịn và mùi da thật vẫn còn sau nhiều năm sử dụng.</p>
+    </div>
+    <div class="frame" style="margin-top:32px">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=80" alt="Bàn làm da với dụng cụ thủ công" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';">
+    </div>
+    <p class="caption" style="margin-top:12px">Bàn làm da của xưởng — dụng cụ cũ, tay nghề mới mỗi ngày</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="stitch"></div></div>
+
+<!-- 3. BỘ SƯU TẬP -->
+<section class="alt" id="bo-suu-tap">
+  <div class="wrap">
+    <div class="stitch-short"></div>
+    <h2>Bộ sưu tập</h2>
+    <p class="muted" style="margin-bottom:64px">Mỗi nhóm một câu chuyện riêng — và một mức giá để bạn tham khảo.</p>
+
+    <article class="product">
+      <div class="frame">
+        <span class="tag">Làm tay · Da bò thuộc thảo mộc</span>
+        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80" alt="Cận cảnh chiếc ví da bò khâu tay" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';">
+      </div>
+      <h3>Ví da</h3>
+      <p>Ví gập đôi, ví dài và ví đựng thẻ — gọn nhẹ, vừa tay, đường chỉ nổi đều hai mặt.</p>
+      <p class="price">từ 750.000đ <small>· Giá mẫu</small></p>
+    </article>
+
+    <article class="product">
+      <div class="frame">
+        <span class="tag">Làm tay · Da bò thuộc thảo mộc</span>
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80" alt="Cận cảnh chiếc túi da bò" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80';">
+      </div>
+      <h3>Túi da</h3>
+      <p>Túi đeo chéo và túi xách tay — da dày dặn, càng dùng vân da càng lên màu đẹp.</p>
+      <p class="price">từ 2.600.000đ <small>· Giá mẫu</small></p>
+    </article>
+
+    <article class="product">
+      <div class="frame">
+        <span class="tag">Làm tay · Da bò thuộc thảo mộc</span>
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80" alt="Cận cảnh chiếc thắt lưng da" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';">
+      </div>
+      <h3>Thắt lưng</h3>
+      <p>Thắt lưng da nguyên tấm, khóa đồng — bền theo năm tháng, không bong tróc mép.</p>
+      <p class="price">từ 890.000đ <small>· Giá mẫu</small></p>
+    </article>
+
+    <article class="product">
+      <div class="frame">
+        <span class="tag">Làm tay · Da bò thuộc thảo mộc</span>
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=80" alt="Cận cảnh dây đồng hồ da" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';">
+      </div>
+      <h3>Dây đồng hồ</h3>
+      <p>Dây da may tay theo size đồng hồ của bạn — mềm từ lần đeo đầu tiên, ôm cổ tay vừa vặn.</p>
+      <p class="price">từ 620.000đ <small>· Giá mẫu</small></p>
+    </article>
+  </div>
+</section>
+
+<div class="wrap"><div class="stitch"></div></div>
+
+<!-- 4. QUY TRÌNH -->
+<section>
+  <div class="wrap">
+    <div class="stitch-short"></div>
+    <h2>Quy trình 4 bước</h2>
+    <p class="muted" style="margin-bottom:64px">Một món đồ Da Mộc ra đời như thế này:</p>
+
+    <article class="step">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?auto=format&fit=crop&w=1600&q=80" alt="Tấm da bò nguyên liệu" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';"></div>
+      <div class="step-num">01</div>
+      <h3>Chọn da</h3>
+      <p>Chỉ chọn da bò thuộc thảo mộc, sờ tay kiểm tra từng tấm — tấm nào có sẹo xấu, vân lỗi thì loại ngay.</p>
+    </article>
+
+    <article class="step">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=80" alt="Thợ đang cắt da trên bàn làm việc" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80';"></div>
+      <div class="step-num">02</div>
+      <h3>Cắt</h3>
+      <p>Cắt theo rập đã đo riêng cho từng mẫu, canh vân da sao cho mặt đẹp nhất nằm ở mặt ngoài sản phẩm.</p>
+    </article>
+
+    <article class="step">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?auto=format&fit=crop&w=1600&q=80" alt="Thợ đang khâu tay đồ da" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=80';"></div>
+      <div class="step-num">03</div>
+      <h3>Khâu tay</h3>
+      <p>Khâu yên ngựa bằng hai kim — mũi chỉ này đứt thì mũi kia vẫn giữ, nên đồ khâu tay khó bung chỉ hơn đồ may máy.</p>
+    </article>
+
+    <article class="step">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80" alt="Sản phẩm da đã hoàn thiện" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80';"></div>
+      <div class="step-num">04</div>
+      <h3>Hoàn thiện</h3>
+      <p>Mài mép, đánh bóng cạnh da, dưỡng da lần cuối rồi kiểm tra từng mũi chỉ trước khi giao.</p>
+    </article>
+  </div>
+</section>
+
+<div class="wrap"><div class="stitch"></div></div>
+
+<!-- 5. CẢM NHẬN KHÁCH -->
+<section class="alt">
+  <div class="wrap">
+    <div class="stitch-short"></div>
+    <h2>Khách nói gì</h2>
+    <div class="quote">
+      <p>“Ví dùng hai năm rồi mà đường chỉ vẫn nguyên, da càng ngày càng mềm và lên màu đẹp.”</p>
+      <p class="muted">— [CẦN BỔ SUNG]</p>
+    </div>
+    <div class="stitch"></div>
+    <div class="quote">
+      <p>“Đặt dây đồng hồ theo size tay mình, đeo vừa in — lần đầu thấy dây da may tay khác hẳn dây mua sẵn.”</p>
+      <p class="muted">— [CẦN BỔ SUNG]</p>
+    </div>
+    <div class="stitch"></div>
+    <div class="quote">
+      <p>“Túi nặng tay, mùi da thật, mở ra thấy thợ làm rất kỹ từng góc cạnh.”</p>
+      <p class="muted">— [CẦN BỔ SUNG]</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="stitch"></div></div>
+
+<!-- 6. ĐẶT HÀNG / LIÊN HỆ -->
+<section>
+  <div class="wrap">
+    <div class="stitch-short"></div>
+    <h2>Đặt làm theo yêu cầu</h2>
+    <p class="muted">Muốn một món đồ chỉ của riêng bạn? Gửi yêu cầu — xưởng sẽ tư vấn da, kiểu dáng và báo giá.</p>
+    <form id="order-form">
+      <label for="name">Họ tên</label>
+      <input id="name" name="name" type="text" placeholder="Họ tên của bạn">
+      <label for="phone">Số điện thoại</label>
+      <input id="phone" name="phone" type="tel" placeholder="Số điện thoại liên hệ">
+      <label for="type">Loại yêu cầu</label>
+      <select id="type" name="type">
+        <option value="mua-san">Mua sản phẩm có sẵn</option>
+        <option value="dat-rieng">Đặt làm riêng theo yêu cầu</option>
+      </select>
+      <label for="note">Ghi chú</label>
+      <textarea id="note" name="note" placeholder="Ví dụ: ví gập đôi, da nâu đậm, khắc tên…"></textarea>
+      <div><button class="btn" type="submit">Gửi yêu cầu</button></div>
+    </form>
+    <p id="form-note">Đây là bản giao diện mẫu — yêu cầu chưa được gửi đi thật.</p>
+    <p class="muted" style="margin-top:32px">Địa chỉ: [CẦN BỔ SUNG] · Điện thoại: [CẦN BỔ SUNG] · Giờ mở cửa: [CẦN BỔ SUNG] · Người phụ trách: [CẦN BỔ SUNG]</p>
+  </div>
+</section>
+
+<!-- 7. CHÂN TRANG -->
+<footer>
+  <div class="wrap">
+    <h3 style="font-size:28px">Da Mộc</h3>
+    <p>Đồ da khâu tay — càng dùng càng đẹp.</p>
+    <p>Trang demo — giá và form chỉ là mẫu. Tất cả giá trên trang là giá mẫu. Toàn bộ ảnh là ảnh mẫu.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('order-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('form-note').style.display = 'block';
+});
+</script>
+</body>
+</html>
